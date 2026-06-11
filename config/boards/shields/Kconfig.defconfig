@@ -6,18 +6,26 @@ if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
 config ZMK_KEYBOARD_NAME
     default "Corne"
 
-# Enable standard split keyboard support
+# 1. Turn off split mode completely for solo testing
 config ZMK_SPLIT
+    default n
+
+# 2. Force ZMK to prioritize USB typing over Bluetooth connection
+config ZMK_USB
     default y
 
-# Enable USB and Bluetooth drivers 
-config USB_DEVICE_STACK
-    default y
+config ZMK_BLE
+    default n
 
-config BT
-    default y
-    # Temporary fix to stop the 10-second wireless split search freeze
-config ZMK_SPLIT
+# 3. Prevent automatic output switching to Bluetooth
+config ZMK_OUTPUT_BEHAVIOR_CURRENT
+    default 1
+
+# 4. Turn off LEDs to clear any hardware pin conflicts
+config ZMK_RGB_UNDERGLOW
+    default n
+
+config WS2812_STRIP
     default n
 
 endif
