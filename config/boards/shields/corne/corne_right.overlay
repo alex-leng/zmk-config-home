@@ -44,7 +44,6 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
     };
 };
 
-
 &pro_micro_i2c {
     status = "okay";
 
@@ -57,11 +56,12 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
-        segment-remap;
-        page-remap;
-        bias-remap;
         
-        // Added modern electrical parameters to satisfy strict driver verification
+        // Fix: Removed page-remap, segment-remap, and bias-remap
+        // Added the correct modern Zephyr display flags
+        segment-no-remap;
+        com-map-remap;
+        
         prechargep = <0x22>; 
         com-invdir;
         com-sequential;
