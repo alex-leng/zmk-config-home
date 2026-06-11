@@ -16,5 +16,8 @@ config USB_DEVICE_STACK
 
 config BT
     default y
+    # Temporary fix to stop the 10-second wireless split search freeze
+config ZMK_SPLIT
+    default n
 
 endif
