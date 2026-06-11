@@ -1,0 +1,20 @@
+# Copyright (c) 2026 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_CORNE_LEFT || SHIELD_CORNE_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Corne"
+
+# Enable standard split keyboard support
+config ZMK_SPLIT
+    default y
+
+# Enable USB and Bluetooth drivers 
+config USB_DEVICE_STACK
+    default y
+
+config BT
+    default y
+
+endif
